@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <meta name="theme-color" content="#0c1210" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <meta
+      name="description"
+      content="BATCHDAY — weekend batch cooking for athletes. High-protein meals, shopping lists, and a Sunday cook plan."
+    />
+    <title>BATCHDAY — Weekend meal prep for athletes</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Syne:wght@600;700;800&family=Manrope:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header class="site-header">
+      <a class="brand" href="#top" aria-label="BATCHDAY home">BATCHDAY</a>
+      <nav class="nav nav-desktop" aria-label="Primary">
+        <a href="#plan">Plan</a>
+        <a href="#meals">Meals</a>
+        <a href="#cook">Cook</a>
+        <a href="#list">List</a>
+      </nav>
+      <a class="nav-cta" href="#plan">Build my week</a>
+    </header>
+
+    <nav class="nav-mobile" aria-label="Mobile">
+      <a href="#plan">Plan</a>
+      <a href="#meals">Meals</a>
+      <a href="#cook">Cook</a>
+      <a href="#list">List</a>
+    </nav>
+
+    <main id="top">
+      <section class="hero" aria-labelledby="hero-title">
+        <div class="hero-media" aria-hidden="true">
+          <img
+            src="https://images.unsplash.com/photo-1546069901-ba9599a7e63c?auto=format&fit=crop&w=2400&q=80"
+            alt=""
+            width="2400"
+            height="1600"
+          />
+          <div class="hero-scrim"></div>
+        </div>
+        <div class="hero-content">
+          <p class="brand-mark">BATCHDAY</p>
+          <h1 id="hero-title">Fuel the week in one cook.</h1>
+          <p class="hero-lede">
+            High-protein weekend prep built for training days — pick your
+            meals, get a shopping list, cook once, eat well all week.
+          </p>
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="#plan">Start this week’s plan</a>
+            <a class="btn btn-ghost" href="#meals">Browse meals</a>
+          </div>
+        </div>
+      </section>
+
+      <section class="section workflow" id="how" aria-labelledby="how-title">
+        <div class="section-inner">
+          <p class="eyebrow">Weekend rhythm</p>
+          <h2 id="how-title">Three moves. Full fridge.</h2>
+          <p class="section-lede">
+            A simple loop so Sunday cooking stays focused and Monday stays
+            effortless.
+          </p>
+          <ol class="workflow-steps">
+            <li>
+              <span class="step-num">01</span>
+              <h3>Choose a meal</h3>
+              <p>Pick one high-protein lunch to batch for the week.</p>
+            </li>
+            <li>
+              <span class="step-num">02</span>
+              <h3>Shop once</h3>
+              <p>One consolidated list — protein, produce, pantry staples.</p>
+            </li>
+            <li>
+              <span class="step-num">03</span>
+              <h3>Cook in parallel</h3>
+              <p>Follow the timed Sunday sequence. Portion. Chill. Done.</p>
+            </li>
+          </ol>
+        </div>
+      </section>
+
+      <section class="section planner" id="plan" aria-labelledby="plan-title">
+        <div class="section-inner">
+          <p class="eyebrow">This week</p>
+          <h2 id="plan-title">Pick your batch lunch.</h2>
+          <p class="section-lede">
+            Choose one meal and how many portions to cook. Default is 5 —
+            enough for a weekday of training lunches.
+          </p>
+
+          <div class="batch-picker" id="batch-picker">
+            <label class="field field-grow">
+              <span>Meal</span>
+              <select id="batch-meal" aria-label="Batch meal"></select>
+            </label>
+            <label class="field">
+              <span>Portions</span>
+              <input
+                type="number"
+                id="batch-portions"
+                min="1"
+                max="20"
+                value="5"
+                inputmode="numeric"
+                aria-describedby="portion-hint"
+              />
+            </label>
+            <button type="button" class="btn btn-ghost" id="clear-plan">
+              Clear
+            </button>
+          </div>
+          <p id="portion-hint" class="hint batch-hint">
+            Shopping quantities scale with portions.
+          </p>
+
+          <div class="week-summary" id="week-summary" aria-live="polite"></div>
+        </div>
+      </section>
+
+      <section class="section meals" id="meals" aria-labelledby="meals-title">
+        <div class="section-inner">
+          <p class="eyebrow">Protein-forward</p>
+          <h2 id="meals-title">Meals that hold up midweek.</h2>
+          <p class="section-lede">
+            Designed to reheat cleanly, travel well, and keep macros honest
+            after a hard session.
+          </p>
+
+          <div class="meal-filters" role="group" aria-label="Filter meals">
+            <button type="button" class="filter is-active" data-filter="all">
+              All
+            </button>
+            <button type="button" class="filter" data-filter="poultry">
+              Poultry
+            </button>
+            <button type="button" class="filter" data-filter="fish">Fish</button>
+            <button type="button" class="filter" data-filter="beef">
+              Beef
+            </button>
+            <button type="button" class="filter" data-filter="veg">
+              Vegetarian
+            </button>
+          </div>
+
+          <div class="meal-grid" id="meal-grid"></div>
+        </div>
+      </section>
+
+      <section class="section cook" id="cook" aria-labelledby="cook-title">
+        <div class="section-inner">
+          <p class="eyebrow">Sunday session</p>
+          <h2 id="cook-title">Cook step by step.</h2>
+          <p class="section-lede" id="cook-lede">
+            Select a meal above to unlock a timed, detailed cook guide scaled
+            to your portions.
+          </p>
+          <div id="cook-guide"></div>
+        </div>
+      </section>
+
+      <section class="section list-section" id="list" aria-labelledby="list-title">
+        <div class="section-inner">
+          <p class="eyebrow">One cart</p>
+          <h2 id="list-title">Shopping list.</h2>
+          <p class="section-lede">
+            Built from your week. Check items off as you shop; copy the list
+            when you’re ready.
+          </p>
+
+          <div class="list-actions">
+            <button type="button" class="btn btn-primary" id="copy-list">
+              Copy list
+            </button>
+            <p class="copy-status" id="copy-status" role="status" aria-live="polite"></p>
+          </div>
+
+          <div class="shopping" id="shopping-list">
+            <p class="empty-state">
+              Select a meal and portions to generate your shopping list.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section class="section tips" aria-labelledby="tips-title">
+        <div class="section-inner tips-inner">
+          <div>
+            <p class="eyebrow">Storage</p>
+            <h2 id="tips-title">Keep it fresh through Friday.</h2>
+            <p class="section-lede">
+              Cool completely before sealing. Most plates keep 4 days in the
+              fridge; freeze anything past day 4 the same night you cook.
+            </p>
+          </div>
+          <ul class="tip-list">
+            <li>
+              <strong>Proteins</strong> — store sauces separate when possible
+              so textures stay sharp on reheat.
+            </li>
+            <li>
+              <strong>Grains &amp; legumes</strong> — portion with a splash of
+              stock or water so they don’t dry out.
+            </li>
+            <li>
+              <strong>Greens</strong> — roast sturdy veg (broccoli, peppers);
+              keep fresh salad for day-of only.
+            </li>
+            <li>
+              <strong>Reheat</strong> — oven or skillet beats microwave for
+              chicken and fish; add a squeeze of citrus after.
+            </li>
+          </ul>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <p class="footer-brand">BATCHDAY</p>
+      <p>Weekend prep for people who train.</p>
+      <p class="footer-note">
+        Deploy as a GitHub Page from the <code>main</code> branch root.
+      </p>
+    </footer>
+
+    <dialog class="meal-dialog" id="meal-dialog" aria-labelledby="dialog-title">
+      <form method="dialog" class="dialog-panel">
+        <button type="submit" class="dialog-close" value="close" aria-label="Close">
+          ×
+        </button>
+        <div id="dialog-body"></div>
+      </form>
+    </dialog>
+
+    <script src="data.js"></script>
+    <script src="app.js"></script>
+  </body>
+</html>
